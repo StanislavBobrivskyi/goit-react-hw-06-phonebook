@@ -1,7 +1,11 @@
 import { createStore } from 'redux';
 import { devToolsEnhancer } from '@redux-devtools/extension';
 
-const initialState = {};
+const initialState = {
+  account: {
+    balance: 0,
+  },
+};
 
 const rootReducer = (state = initialState, action) => {
   return state;
