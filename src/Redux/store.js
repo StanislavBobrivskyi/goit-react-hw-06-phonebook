@@ -1,15 +1,9 @@
-import { createStore } from 'redux';
-import { devToolsEnhancer } from '@redux-devtools/extension';
+// store.js
+import { configureStore } from '@reduxjs/toolkit';
+import rootReducer from './reducers'; // Імпортуйте ваш кореневий reducer
 
-const initialState = {
-  account: {
-    balance: 0,
-  },
-};
+const store = configureStore({
+  reducer: rootReducer,
+});
 
-const rootReducer = (state = initialState, action) => {
-  return state;
-};
-const enhancer = devToolsEnhancer();
-
-export const store = createStore(rootReducer, enhancer);
+export default store;
