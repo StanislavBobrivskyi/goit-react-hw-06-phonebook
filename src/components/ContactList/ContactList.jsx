@@ -43,17 +43,15 @@ export const ContactList = () => {
   };
 
   return (
-    <>
-      <ListWrapper>
-        {visibleContacts.map(item => (
-          <ListItem key={item.id}>
-            <ContactItem {...item} />
-          </ListItem>
-        ))}
-        <DeleteAllBtn type="button" onClick={handleResetContacts}>
-          Reset
-        </DeleteAllBtn>
-      </ListWrapper>
-    </>
+    <ListWrapper>
+      {visibleContacts.map(item => (
+        <ListItem key={item.id}>
+          <ContactItem {...item} />
+        </ListItem>
+      ))}
+      <DeleteAllBtn type="button" onClick={handleResetContacts}>
+        Reset
+      </DeleteAllBtn>
+    </ListWrapper>
   );
 };
