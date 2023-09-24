@@ -1,46 +1,45 @@
-// import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { resetContacts } from 'redux/contactsSlice';
+import { selectContacts, selectFilter } from 'redux/selectors';
+import { ContactItem } from './ContactListItem';
+import { ButtonReset, List, ListItem } from './ContactList.styled';
 
-// import {
-//   ListWrapper,
-//   ItemStyle,
-//   DeleteBtn,
-//   DeleteAllBtn,
-// } from './ContactList.styled';
+export const ContactList = () => {
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
+  const dispatch = useDispatch();
 
-// export function ContactList({ contacts, onDeleteContact, onDeleteAll }) {
-//   return (
-//     <ListWrapper>
-//       {contacts.map(contact => (
-//         <ItemStyle key={contact.id}>
-//           {contact.name}: {contact.number}
-//           <DeleteBtn onClick={() => onDeleteContact(contact.id)}>
-//             Delete
-//           </DeleteBtn>
-//         </ItemStyle>
-//       ))}
-//       {contacts.length > 1 && (
-//         <DeleteAllBtn onClick={onDeleteAll}>Delete All</DeleteAllBtn>
-//       )}
-//     </ListWrapper>
-//   );
-// }
-import React from 'react';
-import { ListWrapper, DeleteAllBtn } from './ContactList.styled';
-import { ContactListItem } from './ContactListItem';
+  const getVisibleContacts = () => {
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
+  };
 
-export function ContactList({ contacts, onDeleteContact, onDeleteAll }) {
+  const visibleContacts = getVisibleContacts();
+
   return (
-    <ListWrapper>
-      {contacts.map(contact => (
-        <ContactListItem
-          key={contact.id}
-          contact={contact}
-          onDeleteContact={onDeleteContact}
-        />
-      ))}
-      {contacts.length > 1 && (
-        <DeleteAllBtn onClick={onDeleteAll}>Delete All</DeleteAllBtn>
-      )}
-    </ListWrapper>
+    <>
+      <ButtonReset
+        type="button"
+        onClick={() => {
+          if (
+            window.confirm(
+              'Are you sure you want to return Contacts to their starting positions?'
+            )
+          ) {
+            dispatch(resetContacts(contacts));
+          }
+        }}
+      >
+        Reset
+      </ButtonReset>
+      <List>
+        {visibleContacts.map(item => (
+          <ListItem key={item.id}>
+            <ContactItem {...item} />
+          </ListItem>
+        ))}
+      </List>
+    </>
   );
-}
+};

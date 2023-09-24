@@ -41,3 +41,13 @@ export const DeleteAllBtn = styled.button`
   }
   box-shadow: 0 2px 4px rgba(33, 83, 60, 0.5);
 `;
+
+export const ContactCard = styled.p`
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+`;
+
+export const ButtonDelete = styled.button`
+  margin-left: 12px;
+`;
