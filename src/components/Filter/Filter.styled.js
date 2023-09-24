@@ -3,13 +3,16 @@ import styled from 'styled-components';
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  font-size: 20px;
+  align-items: center;
 `;
 
-export const InputFilter = styled.input`
+export const InputStyled = styled.input`
+  width: 250px;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid green;
+  padding: 5px;
+  background-color: #ffffff;
+  box-shadow: 1px 2px 6px 0px rgba(33, 83, 60, 0.5);
   margin-bottom: 20px;
-  padding: 4px;
-  width: 180px;
-  box-shadow: inset 2px 2px rgba(0, 0, 0, 0.2);
 `;

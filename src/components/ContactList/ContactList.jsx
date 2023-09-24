@@ -2,7 +2,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { resetContacts } from 'redux/contactsSlice';
 import { selectContacts, selectFilter } from 'redux/selectors';
 import { ContactItem } from 'components/ContactItem/ContactItem';
-import { ButtonReset, List, ListItem } from './ContactList.styled';
+import { DeleteAllBtn, ListWrapper, ListItem } from './ContactList.styled';
+
+import { toast } from 'react-toastify'; // Імпортуємо toast
+import 'react-toastify/dist/ReactToastify.css';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
@@ -17,29 +20,40 @@ export const ContactList = () => {
 
   const visibleContacts = getVisibleContacts();
 
+  const handleResetContacts = () => {
+    if (contacts.length >= 1) {
+      if (
+        window.confirm(
+          'Are you sure you want to return Contacts to their starting positions?'
+        )
+      ) {
+        dispatch(resetContacts());
+        toast.success('Contacts updated successfully!', {
+          position: 'top-center',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'colored',
+        });
+      }
+    }
+  };
+
   return (
     <>
-      <ButtonReset
-        type="button"
-        onClick={() => {
-          if (
-            window.confirm(
-              'Are you sure you want to return Contacts to their starting positions?'
-            )
-          ) {
-            dispatch(resetContacts(contacts));
-          }
-        }}
-      >
-        Reset
-      </ButtonReset>
-      <List>
+      <ListWrapper>
         {visibleContacts.map(item => (
           <ListItem key={item.id}>
             <ContactItem {...item} />
           </ListItem>
         ))}
-      </List>
+        <DeleteAllBtn type="button" onClick={handleResetContacts}>
+          Reset
+        </DeleteAllBtn>
+      </ListWrapper>
     </>
   );
 };
