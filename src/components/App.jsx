@@ -1,8 +1,9 @@
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactsBook } from './App.staled';
 import { ContactList } from './ContactList/ContactList';
-import { Filter } from './ContactFiltr/ContactFilter';
+import { Filter } from './Filter/Filter';
 
+// import { useLocalStorage } from './hooks/useLocalStorage';
 import {} from './ContactList/ContactList.styled';
 
 export const App = () => {

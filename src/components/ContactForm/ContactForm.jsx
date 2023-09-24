@@ -9,7 +9,8 @@ import {
   StyledField,
   Button,
   StyledError,
-} from './ContactForm.styled';
+} from './ContactForm.staled';
+
 
 const schema = Yup.object().shape({
   name: Yup.string()
