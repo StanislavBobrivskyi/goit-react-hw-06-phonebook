@@ -1,5 +1,5 @@
 import { ContactForm } from './ContactForm/ContactForm';
-import { ContactsBook } from './App.staled';
+import { ContactsBook } from './App.styled';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 

@@ -28,5 +28,8 @@ export const Button = styled.button`
 `;
 
 export const StyledError = styled(ErrorMessage)`
+  text-align: center;
+  max-width: 190px;
   color: red;
+  box-shadow: 0 0 10px #ff0000;
 `;
