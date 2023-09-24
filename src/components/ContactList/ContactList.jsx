@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { resetContacts } from 'contactsSlice';
+import { resetContacts } from 'redux/contactsSlice';
 import { selectContacts, selectFilter } from 'selectors';
 import { ContactItem } from 'components/ContactItem/ContactItem';
 import { DeleteAllBtn, ListWrapper, ListItem } from './ContactList.styled';
