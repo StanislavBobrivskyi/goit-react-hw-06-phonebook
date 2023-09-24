@@ -26,7 +26,7 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export const stor = configureStore({
+export const store = configureStore({
   reducer: persistedReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
@@ -36,4 +36,4 @@ export const stor = configureStore({
     }),
 });
 
-export const persistor = persistStore(stor);
+export const persistor = persistStore(store);
