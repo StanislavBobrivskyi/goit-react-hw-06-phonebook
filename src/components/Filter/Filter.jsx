@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { getVisibleContacts } from 'redux/filterSlice';
+import { getVisibleContacts } from 'filterSlice';
 import { InputStyled, Label } from './Filter.styled';
 
 export const Filter = () => {

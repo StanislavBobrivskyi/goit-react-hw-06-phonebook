@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import { deleteContact } from 'redux/contactsSlice';
+import { deleteContact } from 'contactsSlice';
 import { ListWrapper, DeleteBtn } from './ContactItem.styled';
 
 import { toast } from 'react-toastify'; // Імпортуємо toast

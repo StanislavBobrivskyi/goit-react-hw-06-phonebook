@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'contactsSlice';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { selectContacts } from 'redux/selectors';
+import { selectContacts } from 'selectors';
 import { toast } from 'react-toastify'; // Імпортуємо toast
 import 'react-toastify/dist/ReactToastify.css'; // Імпортуємо стилі для тостерів
 import {
